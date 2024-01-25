@@ -1,0 +1,10 @@
+{
+  "main": "employee-management.raml",
+  "name": "Employee Management",
+  "groupId": "241898f3-2b31-4a46-98fa-ccc28d92241e",
+  "assetId": "employee-management",
+  "version": "1.0.0",
+  "classifier": "raml",
+  "tags": [],
+  "descriptorVersion": "1.0.0"
+}

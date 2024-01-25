@@ -1,0 +1,78 @@
+#%RAML 1.0
+title: Employee Management API
+version: v1
+baseUri: /api
+mediaType: 
+- application/json
+documentation:
+  - !include Documentations/Employeedoc.raml
+
+types:
+  Employee: !include /DataTypes/Employee.raml
+
+/employees:
+  get:
+    description: Retrieve all employees
+    responses:
+      200:
+        body:
+          type: Employee []
+
+  post:
+    description: Add a new employee
+    body:
+      type: Employee
+    responses:
+      201:
+        body:
+          type: Employee
+      400:
+        body:
+          properties:
+              statusCode: string
+              message: string
+
+  /{employeeId}:
+    uriParameters:
+      employeeId: integer
+    get:
+      description: Retrieve a specific employee
+      responses:
+        200:
+          body:
+            type: Employee
+        404:
+          body:
+            properties:
+              statusCode: string
+              message: string
+
+    put:
+      description: Update a specific employee
+      body:
+        type: Employee
+      responses:
+        200:
+          body:
+            type: Employee
+        404:
+          body:
+            properties:
+              statusCode: string
+              message: string
+        400:
+          body:
+           properties:
+              statusCode: string
+              message: string
+
+    delete:
+      description: Delete a specific employee
+      responses:
+        204:
+          description: Employee successfully deleted
+        404:
+          body:
+            properties:
+              statusCode: string
+              message: string
